@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS styles */
+        body {
+            background-color: #f0f0f0; /* Light gray background */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .given {
+            text-align: right;
+            margin-right: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="text-center">Simple Calculator <3 </h1>
+    <p class="text-center">Enter two numbers and perform calculations</p>
+
+    <div class="row justify-content-end">
+        <div class="col-md-4 given">
+            <p>Given:</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-end">
+        <div class="col-md-4 given">
+            <label for="num1">Enter a value of x:</label>
+        </div>
+        <div class="col-md-4">
+            <input type="number" id="num1" class="form-control">
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-3">
+        <div class="col-md-4 given">
+            <label for="num2">Enter a value for y:</label>
+        </div>
+        <div class="col-md-4">
+            <input type="number" id="num2" class="form-control">
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-3">
+        <div class="col-md-8 given">
+            <p>Click the buttons below to proceed.</p>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-3">
+        <div class="col-md-8">
+            <button onclick="performCalculations()" class="btn btn-primary btn-block">Perform Calculations</button>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-3">
+        <div class="col-md-8">
+            <h3>Results:</h3>
+            <p id="additionResult"></p>
+            <p id="subtractionResult"></p>
+            <p id="multiplicationResult"></p>
+            <p id="divisionResult"></p>
+        </div>
+    </div>
+
+    <div class="row justify-content-end mt-3">
+        <div class="col-md-8">
+            <button onclick="calculateProduct()" class="btn btn-info">Product of x and y</button>
+            <button onclick="calculateRemainder()" class="btn btn-info">Get the remainder</button>
+            <button onclick="calculatePower()" class="btn btn-info">x raised to y</button>
+            <button onclick="checkEquality()" class="btn btn-info">Check if x is equal to y</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to perform calculations
+    function performCalculations() {
+        // Retrieve input values
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+
+        // Perform calculations
+        var addition = num1 + num2;
+        var subtraction = num1 - num2;
+        var multiplication = num1 * num2;
+        var division = num1 / num2;
+
+        // Display results
+        document.getElementById('additionResult').innerHTML = "Addition Result: " + addition;
+        document.getElementById('subtractionResult').innerHTML = "Subtraction Result: " + subtraction;
+        document.getElementById('multiplicationResult').innerHTML = "Multiplication Result: " + multiplication;
+        document.getElementById('divisionResult').innerHTML = "Division Result: " + division;
+    }
+
+    // Function to calculate product of x and y
+    function calculateProduct() {
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+        var product = num1 * num2;
+        alert("Product of x and y: " + product);
+    }
+
+    // Function to get the remainder
+    function calculateRemainder() {
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+        var remainder = num1 % num2;
+        alert("Remainder: " + remainder);
+    }
+
+    // Function to calculate x raised to y
+    function calculatePower() {
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+        var power = Math.pow(num1, num2);
+        alert("x raised to y: " + power);
+    }
+
+    // Function to check if x is equal to y
+    function checkEquality() {
+        var num1 = parseInt(document.getElementById('num1').value);
+        var num2 = parseInt(document.getElementById('num2').value);
+        var isEqual = num1 === num2;
+        alert("Is x equal to y? " + isEqual);
+    }
+</script>
+
+</body>
+</html>
